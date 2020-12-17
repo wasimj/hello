@@ -6,6 +6,9 @@ hello: hello.o
 hello.o: hello.c
 	gcc -c -Wall hello.c
 
+test: hello
+	./hello | grep -q 'Hello'
+
 clean:
 	rm -rf *.o hello
 

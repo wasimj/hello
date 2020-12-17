@@ -1,13 +1,11 @@
-.PHONY: all
 all: hello
 
-hello: src/hello.c
-    cc -o hello src/hello.c
+hello: hello.o
+	gcc -Wall hello.o -o hello
 
-test: hello
-    ./hello | grep -q 'Hello'
+hello.o: hello.c
+	gcc -c -Wall hello.c
 
-.PHONY: clean
 clean:
-    rm -f hello
+	rm -rf *.o hello
 
